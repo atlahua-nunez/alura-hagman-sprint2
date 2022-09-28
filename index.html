@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bangers">
+    
+    <title>Hangman</title>
+</head>
+<body>    
+    <main>
+        <section class="ahorcado" id="ahorcado">
+            <svg height="250" width="200" class="figure-container" id="body-parts">
+                    <!--mastil-->
+                    <line x1="60" y1="20" x2="140" y2="20" id="mastil" ></line>    
+                    <line x1="140" y1="20" x2="140" y2="50" id="mastil"></line>
+                    <line x1="60" y1="20" x2="60" y2="230" id="mastil"></line>
+                    <line x1="20" y1="230" x2="100" y2="230" id="mastil"></line>
+                    <!--cabeza-->
+                    <circle cx="140" cy="70" r="20" class="figure-part" id="figure-part"></circle>
+                    <!--cuerpo-->
+                    <line x1="140" y1="90" x2="140" y2="150" class="figure-part" id="figure-part1" ></line>
+                    <!--brazos-->
+                    <line x1="140" y1="120" x2="120" y2="100" class="figure-part" id="figure-part2"></line>
+                    <line x1="140" y1="120" x2="160" y2="100" class="figure-part" id="figure-part3"></line>
+                    <!--piernas-->
+                    <line x1="140" y1="150" x2="120" y2="180" class="figure-part" id="figure-part4"></line>
+                    <line x1="140" y1="150" x2="160" y2="180" class="figure-part" id="figure-part5"></line>
+            </svg> 
+        </section>
+
+        <div class="btn-jugar" id="jugar">
+            <button type="button" class="btn-inicio" id="inicio" onclick="juego();" >
+                <p class="btn-text">Iniciar Juego</p>
+            </button>
+        </div>
+        
+        <div class="hidden-letras">
+            <div id="letras-ocultas"></div>
+        </div>
+        
+        <br>
+        
+        <div class="charactes" id="letra-intentada"></div> <br>
+        
+        <div class= "lives" id="vidas">
+            <p class="font-effect-neon"> Vidas disponibles: 6</p> 
+        </div><br>
+        
+    
+        
+        <div class ="contenedor-letras-erroneas" id="letras-erroneas"> </div>
+        <div class="notificacion-letras-erroneas" id="notificacion-letras-erroneas">
+            <p class="font-effect-neon">Letras erroneas: </p>
+        </div>
+
+        <div class="notificacion" id="notificacion">
+            <p>Ya intentaste esa letra.</p>
+        </div>
+
+        <div class="solo-letras" id="solo-letras">
+            <p>Solo se permiten letras!!</p>
+        </div> 
+
+
+        <!--Mensaje final ganaste-->
+        <div class="mensaje" id ="mensaje">
+            <div class="popup">
+                <h3>Game Over</h3>
+                <p class="win"><h2 style ="color:#ffffff">Ganaste</h2></p>
+                <p class="play-again"><h2 style ="color:#ffffff">¿Quieres volver a jugar?</h2></p>
+                <button class="btn-si" type="button" onclick="nuevo_juego()">Si</button>
+                <button class="btn-no"type="button" onclick="desistir()">No</button>
+            </div>
+        </div>
+        <!--Mensaje final perdiste-->
+        <div class="mensaje-perder" id ="mensaje-perder">
+            <div class="popup">
+                <h3>Game Over</h3>
+                <p class="lose"><h2 style ="color:#ffffff">Perdiste</h2></p>
+                <p class="play-again"><h2 style ="color:#ffffff">¿Quieres volver a jugar?</h2></p>
+                <button class="btn-si" type="button" onclick="nuevo_juego()">Si</button>
+                <button class="btn-no" type="button" onclick="desistir()">No</button>
+            </div>
+        </div>
+        
+
+
+        <div class="menu-agregar">
+            <button type="button" id="btn-menu-agregar" onclick="menuAgregar()">Agregar Palabra</button>
+        </div>
+        <div class="menu-principal">
+            <button type="button" id="btn-menu-principal" onclick="menuPrincipal()">Menú principal</button>
+        </div>
+        <div class="btn-agregar">
+            <input type="text" id="addWord" placeholder="Escribe nueva palabra"><br></br> 
+            <button type="button" id="agregar" onclick="addNewWord();">Agregar</button><br>
+        </div>
+        <br>
+        <div class="desistir">
+            <button type="button" id="btn-desistir" onclick="desistir()">Desistir</button>
+        </div>
+        
+        <script src ="main.js"></script>
+    </main>
+</body>
+</html>
